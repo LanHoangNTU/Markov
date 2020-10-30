@@ -20,13 +20,4 @@
 			echo $conditions;
 		}
 	}
-
-	$array = array();
-	$array[] = new Condition("NV", "<=", 8.5);
-	$array[] = new Condition("TO", ">=", 9.5);
-	$array[] = new Condition("AV", "<", 9.5);
-	
-	$law = new Law($array, "Toan");
-
-	$law->show();
  ?>
