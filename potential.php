@@ -8,7 +8,7 @@
 <body>
 	<?php
 		session_start();
-		require_once('class.listolaw.php');
+		require_once('laws.php');
 
 		function show($arr)
 		{
