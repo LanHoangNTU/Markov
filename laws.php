@@ -2,7 +2,7 @@
 	require_once("class.listolaw.php");	
 
 	$array = array();
-	$llist = new LawList();
+	$llist = new LawList(); //List of laws
 
 	$array[] = new Condition("NV", "<=", 8.5);
 	$array[] = new Condition("TO", ">=", 9.5);
