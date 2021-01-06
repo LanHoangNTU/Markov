@@ -5,8 +5,8 @@
 	{
 		public $list_o_law;
 
-		public function potential($math, $vnmese, $forlang){
-			$arr = array("TO"=>0,"NV"=>0,"NN"=>0);
+		public function potential($math, $vnmese, $forlang, $physics, $chemistry){
+			$arr = array("TO"=>0,"NV"=>0,"NN"=>0,"VL"=>0,"HH"=>0);
 			$s = 0;
 			foreach ($this->list_o_law as $law) {
 				foreach ($law->list_condition as $condition) {
@@ -25,6 +25,18 @@
 							break;
 						case 'NN':
 							if($condition->checkCondition($forlang)){
+								$arr[$law->conclusion]++;
+								$s++;
+							}	
+							break;
+						case 'VL':
+							if($condition->checkCondition($physics)){
+								$arr[$law->conclusion]++;
+								$s++;
+							}	
+							break;
+						case 'HH':
+							if($condition->checkCondition($chemistry)){
 								$arr[$law->conclusion]++;
 								$s++;
 							}	
