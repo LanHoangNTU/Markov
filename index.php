@@ -76,7 +76,7 @@
 				</div>
 				<div class="grid-item">
 					<button id="submit" class="btn btn-outline-dark">Xem kết quả</button>
-					<button onclick="window.location.assign('../markov/index.php')" class="btn btn-outline-dark">Nhập từ file</button>
+					<button id="submit_2" class="btn btn-outline-dark">Xem kết quả</button>
 				</div>
 				<div class="item1-3">
 					<hr>
@@ -123,6 +123,39 @@
 	 			$.ajax({
 	 				type: 'POST',
     				url: 'ajax_potential.php',
+    				data: form_data,
+    				contentType: false,
+					cache: false,
+					processData: false,
+    				success:function(data){
+    					$("#content_2").html(data);
+    				},
+    				error:function(){
+    					console.log("failed");
+    				}
+	 			})
+	 	});
+
+	 	$('#submit_2').click(function(){
+	 		
+	 			var name = $("#name").val();
+	 			var math = $("#math").val();
+	 			var vnamese = $("#vnamese").val();
+	 			var forlang = $("#forlang").val();
+	 			var physics = $("#physics").val();
+	 			var chemistry = $("#chemistry").val();
+
+	 			var form_data = new FormData();
+	 			form_data.append("name", name);
+	 			form_data.append("math", math);
+	 			form_data.append("vnamese", vnamese);
+	 			form_data.append("forlang", forlang);
+	 			form_data.append("physics", physics);
+	 			form_data.append("chemistry", chemistry);
+
+	 			$.ajax({
+	 				type: 'POST',
+    				url: 'ajax_full_potential.php',
     				data: form_data,
     				contentType: false,
 					cache: false,

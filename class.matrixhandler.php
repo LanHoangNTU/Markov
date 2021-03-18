@@ -39,7 +39,8 @@
 				return $result;
 			}
 			else{
-				return "Void";
+				error_log($m." ".$n_1." ".$n_2." ".$p);
+				return null;
 			}
 		}
 
@@ -67,6 +68,27 @@
 			else{
 				return "Void";
 			}
+		}
+
+
+
+		public function format($potential) {
+			$matrix = new Array2D();
+			for ($i=0; $i < count($potential->getArray()); $i++) { 
+				$matrix->addRow();
+				for ($j=0; $j < count($potential->getArray()[0]); $j++) { 
+					$matrix->setValueAt($i, $j, round( $potential->getValueAt($i, $j) * 100, 2) );
+				}
+			}
+			return $matrix;
+		}
+
+		public function formatArray($arr) {
+			foreach ($arr as $key => $value) {
+				$arr[$key] = round($arr[$key] * 100, 3);
+			}
+
+			return $arr;
 		}
 	}
  ?>

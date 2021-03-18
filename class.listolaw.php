@@ -50,7 +50,7 @@
 			}
 
 			foreach ($arr as $key => $value) {
-				$arr[$key] = round($arr[$key] / $s * 100,3);
+				$arr[$key] = round($arr[$key] / $s, 3);
 			}
 
 			return $arr;

@@ -1,6 +1,7 @@
 	<?php
 		session_start();
 		require_once('laws.php');
+		require_once('class.matrixhandler.php');
 
 		$name = $_POST['name'];
 		$math = $_POST['math'];
@@ -18,6 +19,7 @@
 			</tr></thead>";
 
 			$potential = $llist->potential($math, $vnamese, $forlang, $physics, $chemistry);
+			$potential = MatrixHandler::formatArray($potential);
 
 			$data .= "<tbody>";
 		 	$data .= "<tr><th>Toán</th><th>".$potential["TO"]." %</th></tr>";

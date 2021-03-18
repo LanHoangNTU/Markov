@@ -40,14 +40,14 @@ form, .form{
 }
 
 .grid-1-2{
-	grid-template-columns: 35% auto;
+	grid-template-columns: 40% auto;
 }
 
 .grid-container{
 	background-color: white;
 	padding: 10px;
 	display: grid;
-	grid-template-columns: 150px 220px;
+	grid-template-columns: 200px 270px;
 	grid-gap: 10px 5px;
 /*	width: 28%;*/
 	vertical-align: middle;
