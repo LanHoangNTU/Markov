@@ -24,65 +24,67 @@
 
 
 		 </form> -->
-		<div class="form">
-			<div class="grid-container">
-				<div class="grid-item item1-3 text-center">
+		<div class="row">
+			<div class="row col-6">
+				<div class="col-12 text-center">
 					<h3>KẾT QUẢ HỌC TẬP</h3>
 				</div>
-				<div class="grid-item item1-3">
+				<div class="col-12">
 					<hr>
 				</div>
-				<div class="grid-item">
+				<div class="col-4">
 					<h4>Tên: </h4>
 				</div>
-				<div class="grid-item">
+				<div class="col-8">
 					<input type="text" name="name" id="name" placeholder="Nhập tên...">
 				</div>
-				<div class="grid-item">
+				<div class="col-4">
 					<h4>Toán: </h4>
 				</div>
-				<div class="grid-item">
+				<div class="col-8">
 					<input type="number" name="math" id="math" value='0'>
 				</div>
 
-				<div class="grid-item">
+				<div class="col-4">
 					<h4>Ngữ Văn: </h4>
 				</div>
-				<div class="grid-item">
+				<div class="col-8">
 					<input type="number" name="vnamese" id="vnamese" value='0'>
 				</div>
 
-				<div class="grid-item">
+				<div class="col-4">
 					<h4>Anh Văn: </h4>
 				</div>
-				<div class="grid-item">
+				<div class="col-8">
 					<input type="number" name="forlang" id="forlang" value='0'>
 				</div>
-				<div class="grid-item">
+				<div class="col-4">
 					<h4>Lý: </h4>
 				</div>
-				<div class="grid-item">
+				<div class="col-8">
 					<input type="number" name="physics" id="physics" value='0'>
 				</div>
 
-				<div class="grid-item">
+				<div class="col-4">
 					<h4>Hóa: </h4>
 				</div>
-				<div class="grid-item">
+				<div class="col-8">
 					<input type="number" name="chemistry" id="chemistry" value='0'>
 				</div>
 
-				<div class="grid-item">
+				<div class="col-4">
 				</div>
-				<div class="grid-item">
+				<div class="col-8">
 					<button id="submit" class="btn btn-outline-dark">Xem kết quả</button>
 					<button id="submit_2" class="btn btn-outline-dark">Xem kết quả</button>
 				</div>
-				<div class="item1-3">
+				<div class="col-12">
 					<hr>
 				</div>
-		 		<div id="content" class="item1-3"></div>
-		 		<div id="content_2" class="item1-3"></div>
+			</div>
+			<div class="col-6">
+				<div id="content" class="col-12"></div>
+		 		<div id="content_2" class="col-12"></div>
 			</div>
 		</div>
 	 </div>
