@@ -2,6 +2,10 @@
 	require_once("laws.php");
 	function show($arr)
 	{
+		if (empty($arr)) {
+			return null;
+		}
+
 		$a_str = array();
 		$max = max($arr);
 		foreach ($arr as $key => $value) {
@@ -35,7 +39,11 @@
 	$physics = $_POST['physics'];
 	$chemistry = $_POST['chemistry'];
 
-	$data = "<p>Bạn ".$name." có các năng khiếu ".show($llist->potential($math, $vnamese, $forlang, $physics, $chemistry))."</p>";
+	$result = show($llist->potential($math, $vnamese, $forlang, $physics, $chemistry));
+	if ($result == null)
+		$data = "<p>Bạn không có năng khiếu</p>";
+	else
+		$data = "<p>Bạn ".$name." có các năng khiếu ".$result."</p>";
 
 	echo $data;
  ?>

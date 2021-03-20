@@ -20,13 +20,14 @@
 
 			$potential = $llist->potential($math, $vnamese, $forlang, $physics, $chemistry);
 			$potential = MatrixHandler::formatArray($potential);
+			$isEmpty = empty($potential);
 
 			$data .= "<tbody>";
-		 	$data .= "<tr><th>Toán</th><th>".$potential["TO"]." %</th></tr>";
-		 	$data .= "<tr><th>Tiếng Việt</th><th>".$potential["NV"]." %</th></tr>";
-		 	$data .= "<tr><th>Anh Văn</th><th>".$potential["NN"]." %</th></tr>";
-		 	$data .= "<tr><th>Vật Lý</th><th>".$potential["VL"]." %</th></tr>";
-		 	$data .= "<tr><th>Hóa Học</th><th>".$potential["HH"]." %</th></tr>";
+		 	$data .= "<tr><th>Toán</th><th>".      ($isEmpty ? 0 : $potential["TO"])." %</th></tr>";
+		 	$data .= "<tr><th>Tiếng Việt</th><th>".($isEmpty ? 0 : $potential["NV"])." %</th></tr>";
+		 	$data .= "<tr><th>Anh Văn</th><th>".   ($isEmpty ? 0 : $potential["NN"])." %</th></tr>";
+		 	$data .= "<tr><th>Vật Lý</th><th>".	   ($isEmpty ? 0 : $potential["VL"])." %</th></tr>";
+		 	$data .= "<tr><th>Hóa Học</th><th>".   ($isEmpty ? 0 : $potential["HH"])." %</th></tr>";
 		 	$data .= "</tbody></table>";
 
 		 	echo $data;

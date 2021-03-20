@@ -7,53 +7,36 @@
 
 		public function potential($math, $vnmese, $forlang, $physics, $chemistry){
 			$arr = array("TO"=>0,"NV"=>0,"NN"=>0,"VL"=>0,"HH"=>0);
+			$scores = array(
+				"TO"=>$math,
+				"NV"=>$vnmese,
+				"NN"=>$forlang,
+				"VL"=>$physics,
+				"HH"=>$chemistry
+			);
 			$s = 0;
 			foreach ($this->list_o_law as $law) {
+				$k = true;
 				foreach ($law->list_condition as $condition) {
-					switch ($condition->subject) {
-						case 'TO':
-							if($condition->checkCondition($math)){
-								$arr[$law->conclusion]++;
-								$s++;
-							}	
-							break;
-						case 'NV':
-							if($condition->checkCondition($vnmese)){
-								$arr[$law->conclusion]++;
-								$s++;
-							}	
-							break;
-						case 'NN':
-							if($condition->checkCondition($forlang)){
-								$arr[$law->conclusion]++;
-								$s++;
-							}	
-							break;
-						case 'VL':
-							if($condition->checkCondition($physics)){
-								$arr[$law->conclusion]++;
-								$s++;
-							}	
-							break;
-						case 'HH':
-							if($condition->checkCondition($chemistry)){
-								$arr[$law->conclusion]++;
-								$s++;
-							}	
-							break;
-						
-						default:
-							echo "loi khong co subject";
-							break;
+					// Kiem tra dieu kien
+					foreach ($scores as $key => $score) {
+						if ($condition->subject == $key && !$condition->checkCondition($math)) {
+							$k = false;
+						}
 					}
+				}
+
+				if ($k == true) {
+					$arr[$law->conclusion]++;
+					$s++;
 				}
 			}
 
 			foreach ($arr as $key => $value) {
-				$arr[$key] = round($arr[$key] / $s, 3);
+				$arr[$key] = $s == 0 ? 0 : round($arr[$key] / $s, 3);
 			}
 
-			return $arr;
+			return $s == 0 ? array() : $arr;
 		}
 	}
 

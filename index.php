@@ -76,7 +76,14 @@
 				</div>
 				<div class="col-8">
 					<button id="submit" class="btn btn-outline-dark">Xem kết quả</button>
-					<button id="submit_2" class="btn btn-outline-dark">Xem kết quả</button>
+					<button id="submit_2" class="btn btn-outline-dark">Dự đoán các học kỳ sau</button>
+				</div>
+				<div class="col-4"></div>
+				<div class="col-8">
+					<button  
+						class="btn btn-primary btn-outline-dark"
+						onclick="window.location.assign('file_upload.php')">Nhập từ file
+					</button>
 				</div>
 				<div class="col-12">
 					<hr>

@@ -25,35 +25,51 @@
 	</tr></thead>";
 
 	$initial_potential = $llist->potential($math, $vnamese, $forlang, $physics, $chemistry);
-	$potential = new Array2D();
+	$potential = null;
 	$matrix = new Array2D();
-
 	$matrix->configure(PotentialMatrixConstant::matrix);
-	$potential->configure(
-	array(array(
-		$initial_potential["TO"], 
-		$initial_potential["VL"], 
-		$initial_potential["HH"], 
-		$initial_potential["NN"], 
-		$initial_potential["NV"]
-	)));
 
 	$data .= "<tbody>";
 
-	for ($i=0; $i < $n; $i++) { 
-		$potential = MatrixHandler::multiplyArray2D($potential, $matrix);
-		$potential_format = MatrixHandler::format($potential);
+	if (!empty($initial_potential)) {
+		for ($i=0; $i < $n; $i++) { 
+			if ($potential == null) {
+				$potential = new Array2D();
+				$potential->configure(
+				array(array(
+					$initial_potential["TO"], 
+					$initial_potential["VL"], 
+					$initial_potential["HH"], 
+					$initial_potential["NN"], 
+					$initial_potential["NV"]
+				)));
+			}
+			else {
+				$potential = MatrixHandler::multiplyArray2D($potential, $matrix);
+			}
+			
+			$potential_format = MatrixHandler::format($potential);
+			$data .= "<tr>";
+				$data .= "<th>n".$i."</th>";
+			 	$data .= "<th>".$potential_format->getValueAt(0, 0)." %</th>";
+			 	$data .= "<th>".$potential_format->getValueAt(0, 1)." %</th>";
+			 	$data .= "<th>".$potential_format->getValueAt(0, 2)." %</th>";
+			 	$data .= "<th>".$potential_format->getValueAt(0, 3)." %</th>";
+			 	$data .= "<th>".$potential_format->getValueAt(0, 4)." %</th>";
+		 	$data .= "</tr>";
+		}
+	}
+	else {
 		$data .= "<tr>";
-			$data .= "<th>n".$i."</th>";
-		 	$data .= "<th>".$potential_format->getValueAt(0, 0)." %</th>";
-		 	$data .= "<th>".$potential_format->getValueAt(0, 1)." %</th>";
-		 	$data .= "<th>".$potential_format->getValueAt(0, 2)." %</th>";
-		 	$data .= "<th>".$potential_format->getValueAt(0, 3)." %</th>";
-		 	$data .= "<th>".$potential_format->getValueAt(0, 4)." %</th>";
-	 	$data .= "</tr>";
+			$data .= "<th>0</th>";
+		 	$data .= "<th>0 %</th>";
+		 	$data .= "<th>0 %</th>";
+		 	$data .= "<th>0 %</th>";
+		 	$data .= "<th>0 %</th>";
+		 	$data .= "<th>0 %</th>";
+		$data .= "</tr>";
 	}
 
 	$data .= "</tbody></table>";
-
  	echo $data;
  ?>
