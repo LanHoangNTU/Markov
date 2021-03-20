@@ -1,5 +1,5 @@
 <?php 
-	require_once("laws.php");
+	require_once("../laws.php");
 	function show($arr)
 	{
 		if (empty($arr)) {

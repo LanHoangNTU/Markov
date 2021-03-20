@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="ajax_handler.js"></script>
 
 	<link rel="stylesheet" href="css/grid.css">
 </head>
@@ -36,40 +37,59 @@
 					<h4>Tên: </h4>
 				</div>
 				<div class="col-8">
-					<input type="text" name="name" id="name" placeholder="Nhập tên...">
+					<input type="text" name="name" id="name"
+					value = "<?php 
+						echo isset($_POST['name']) ? $_POST['name'] : ''
+					 ?>"
+					 placeholder="Nhập tên...">
 				</div>
 				<div class="col-4">
 					<h4>Toán: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="math" id="math" value='0'>
+					<input type="number" name="math" id="math"
+					value = "<?php 
+						echo isset($_POST['math']) ? $_POST['math'] : 0
+					 ?>" autocomplete="off">
 				</div>
 
 				<div class="col-4">
 					<h4>Ngữ Văn: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="vnamese" id="vnamese" value='0'>
+					<input type="number" name="vnamese" id="vnamese" 
+					value = "<?php 
+						echo isset($_POST['vnamese']) ? $_POST['vnamese'] : 0
+					 ?>" autocomplete="off">
 				</div>
 
 				<div class="col-4">
 					<h4>Anh Văn: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="forlang" id="forlang" value='0'>
+					<input type="number" name="forlang" id="forlang" 
+					value = "<?php 
+						echo isset($_POST['forlang']) ? $_POST['forlang'] : 0
+					 ?>" autocomplete="off">
 				</div>
 				<div class="col-4">
 					<h4>Lý: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="physics" id="physics" value='0'>
+					<input type="number" name="physics" id="physics" 
+					value = "<?php 
+						echo isset($_POST['physics']) ? $_POST['physics'] : 0
+					 ?>" autocomplete="off">
 				</div>
 
 				<div class="col-4">
 					<h4>Hóa: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="chemistry" id="chemistry" value='0'>
+					<input type="number" name="chemistry" id="chemistry" 
+					value = "<?php 
+						echo isset($_POST['chemistry']) ? $_POST['chemistry'] : 0
+					 ?>" autocomplete="off">
 				</div>
 
 				<div class="col-4">
@@ -97,86 +117,29 @@
 	 </div>
 	 
 	 <script type="text/javascript">
-	 	$('#submit').click(function(){
-	 		
-	 			var name = $("#name").val();
-	 			var math = $("#math").val();
-	 			var vnamese = $("#vnamese").val();
-	 			var forlang = $("#forlang").val();
-	 			var physics = $("#physics").val();
-	 			var chemistry = $("#chemistry").val();
+	 	$(document).ready(function(){
+		 	$('#submit').click( () => {
+				var name = $("#name").val();
+				var math = $("#math").val();
+				var vnamese = $("#vnamese").val();
+				var forlang = $("#forlang").val();
+				var physics = $("#physics").val();
+				var chemistry = $("#chemistry").val();
 
-	 			var form_data = new FormData();
-	 			form_data.append("name", name);
-	 			form_data.append("math", math);
-	 			form_data.append("vnamese", vnamese);
-	 			form_data.append("forlang", forlang);
-	 			form_data.append("physics", physics);
-	 			form_data.append("chemistry", chemistry);
+				handleOnce(name, math, vnamese, forlang, physics, chemistry);
+		 	});
 
-	 			$.ajax({
-	 				type: 'POST',
-    				url: 'ajax_read.php',
-    				data: form_data,
-    				contentType: false,
-					cache: false,
-					processData: false,
-    				success:function(data){
-    					$("#content").html(data);
-    				},
-    				error:function(){
-    					console.log("failed");
-    				}
-	 			})
+		 	$('#submit_2').click(() => {
+		 		var name = $("#name").val();
+				var math = $("#math").val();
+				var vnamese = $("#vnamese").val();
+				var forlang = $("#forlang").val();
+				var physics = $("#physics").val();
+				var chemistry = $("#chemistry").val();
 
-	 			$.ajax({
-	 				type: 'POST',
-    				url: 'ajax_potential.php',
-    				data: form_data,
-    				contentType: false,
-					cache: false,
-					processData: false,
-    				success:function(data){
-    					$("#content_2").html(data);
-    				},
-    				error:function(){
-    					console.log("failed");
-    				}
-	 			})
-	 	});
-
-	 	$('#submit_2').click(function(){
-	 		
-	 			var name = $("#name").val();
-	 			var math = $("#math").val();
-	 			var vnamese = $("#vnamese").val();
-	 			var forlang = $("#forlang").val();
-	 			var physics = $("#physics").val();
-	 			var chemistry = $("#chemistry").val();
-
-	 			var form_data = new FormData();
-	 			form_data.append("name", name);
-	 			form_data.append("math", math);
-	 			form_data.append("vnamese", vnamese);
-	 			form_data.append("forlang", forlang);
-	 			form_data.append("physics", physics);
-	 			form_data.append("chemistry", chemistry);
-
-	 			$.ajax({
-	 				type: 'POST',
-    				url: 'ajax_full_potential.php',
-    				data: form_data,
-    				contentType: false,
-					cache: false,
-					processData: false,
-    				success:function(data){
-    					$("#content_2").html(data);
-    				},
-    				error:function(){
-    					console.log("failed");
-    				}
-	 			})
-	 	});
+				handleMultiple(name, math, vnamese, forlang, physics, chemistry);
+		 	});
+		 });
 	 </script>
 </body>
 </html>

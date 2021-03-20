@@ -1,9 +1,9 @@
 <?php 
 	session_start();
-	require_once('laws.php');
-	require_once('class.array2d.php');
-	require_once('class.matrixhandler.php');
-	require_once('class.potentialmatrix.php');
+	require_once('../laws.php');
+	require_once('../class.array2d.php');
+	require_once('../class.matrixhandler.php');
+	require_once('../class.potentialmatrix.php');
 
 	$name = $_POST['name'];
 	$math = $_POST['math'];
