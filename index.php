@@ -47,17 +47,17 @@
 					<h4>Toán: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="math" id="math"
+					<input type="number" name="math" id="math" min="0" max="10"
 					value = "<?php 
 						echo isset($_POST['math']) ? $_POST['math'] : 0
 					 ?>" autocomplete="off">
 				</div>
-
+ 
 				<div class="col-4">
 					<h4>Ngữ Văn: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="vnamese" id="vnamese" 
+					<input type="number" name="vnamese" id="vnamese" min="0" max="10"
 					value = "<?php 
 						echo isset($_POST['vnamese']) ? $_POST['vnamese'] : 0
 					 ?>" autocomplete="off">
@@ -67,7 +67,7 @@
 					<h4>Anh Văn: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="forlang" id="forlang" 
+					<input type="number" name="forlang" id="forlang" min="0" max="10"
 					value = "<?php 
 						echo isset($_POST['forlang']) ? $_POST['forlang'] : 0
 					 ?>" autocomplete="off">
@@ -76,7 +76,7 @@
 					<h4>Lý: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="physics" id="physics" 
+					<input type="number" name="physics" id="physics" min="0" max="10"
 					value = "<?php 
 						echo isset($_POST['physics']) ? $_POST['physics'] : 0
 					 ?>" autocomplete="off">
@@ -86,7 +86,7 @@
 					<h4>Hóa: </h4>
 				</div>
 				<div class="col-8">
-					<input type="number" name="chemistry" id="chemistry" 
+					<input type="number" name="chemistry" id="chemistry" min="0" max="10"
 					value = "<?php 
 						echo isset($_POST['chemistry']) ? $_POST['chemistry'] : 0
 					 ?>" autocomplete="off">

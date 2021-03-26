@@ -20,7 +20,7 @@
 				foreach ($law->list_condition as $condition) {
 					// Kiem tra dieu kien
 					foreach ($scores as $key => $score) {
-						if ($condition->subject == $key && !$condition->checkCondition($math)) {
+						if ($condition->subject == $key && !$condition->checkCondition($score)) {
 							$k = false;
 						}
 					}

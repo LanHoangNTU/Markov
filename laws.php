@@ -5,6 +5,13 @@
 	$llist = new LawList();
 
 	$array[0] = new Condition("NV", "<=", 8.5);
+	$array[1] = new Condition("TO", "<", 9.0);
+	$array[2] = new Condition("NN", "<", 9.0);
+	$array[4] = new Condition("HH", ">=", 9.0);
+	$law = new Law($array, "HH");
+	$llist->list_o_law[] = $law;
+
+	$array[0] = new Condition("NV", "<=", 8.5);
 	$array[1] = new Condition("TO", ">=", 8);
 	$array[2] = new Condition("NN", "<", 9.5);
 	$array[3] = new Condition("VL", "<", 9.5);
@@ -58,13 +65,6 @@
 	$array[3] = new Condition("VL", "<", 9.0);
 	$array[4] = new Condition("HH", ">=", 9.0);
 	$law = new Law($array, "NN");
-	$llist->list_o_law[] = $law;
-
-	$array[0] = new Condition("NV", "<=", 8.5);
-	$array[1] = new Condition("TO", "<", 9.0);
-	$array[2] = new Condition("NN", "<", 9.0);
-	$array[4] = new Condition("HH", ">=", 9.0);
-	$law = new Law($array, "HH");
 	$llist->list_o_law[] = $law;
 
 	$array[0] = new Condition("NV", "<", 7.5);

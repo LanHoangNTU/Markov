@@ -11,15 +11,15 @@
 	$forlang = $_POST['forlang'];
 	$physics = $_POST['physics'];
 	$chemistry = $_POST['chemistry'];
-	$n = isset($_POST['n']) ? $_POST['n'] : 6;
+	$n = isset($_POST['n']) ? $_POST['n'] : 5;
 
 	$data = "<table class='table table-bordered' align='center' width='100%'>";
 	$data .= 
 	"<thead class='thead-light'><tr>
 		<th>Chu kỳ</th>
 		<th>Toán</th>
-	 	<th>Vật lý</th>
 	 	<th>Hóa học</th>
+	 	<th>Vật lý</th>
 	 	<th>Anh văn</th>
 	 	<th>Ngữ văn</th>
 	</tr></thead>";
