@@ -30,7 +30,6 @@
 	$matrix->configure(PotentialMatrixConstant::matrix);
 
 	$data .= "<tbody>";
-
 	if (!empty($initial_potential)) {
 		for ($i=0; $i < $n; $i++) { 
 			if ($potential == null) {

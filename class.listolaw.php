@@ -23,6 +23,8 @@
 						if ($condition->subject == $key && !$condition->checkCondition($score)) {
 							$k = false;
 						}
+
+						if(!$k) break;
 					}
 				}
 
